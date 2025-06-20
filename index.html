@@ -1180,5 +1180,157 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gel Extensions</
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gel Extensions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gel Polish</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Nail Art</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Nail Repair</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Spa Manicure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Beauty St, Nail City</a></li>
+                        <li><a href="tel:+1234567890"><i class="fas fa-phone"></i> (123) 456-7890</a></li>
+                        <li><a href="mailto:info@luxenails.com"><i class="fas fa-envelope"></i> info@luxenails.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9am-7pm</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Sun: 10am-4pm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Luxe Nails. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> by NailArt Studios</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const closeMenuBtn = document.querySelector('.close-menu-btn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Testimonial Slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonialCards.forEach(card => card.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialCards[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonial(index);
+            });
+        });
+        
+        // Auto slide testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Video Play Button
+        const playButtons = document.querySelectorAll('.play-btn');
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const video = this.parentElement.querySelector('video');
+                const card = this.closest('.reel-card');
+                
+                if (video.paused) {
+                    video.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i>';
+                    card.classList.add('playing');
+                } else {
+                    video.pause();
+                    this.innerHTML = '<i class="fas fa-play"></i>';
+                    card.classList.remove('playing');
+                }
+            });
+        });
+        
+        // Pause video when another is played
+        const videos = document.querySelectorAll('.reel-video video');
+        videos.forEach(video => {
+            video.addEventListener('play', function() {
+                videos.forEach(v => {
+                    if (v !== video && !v.paused) {
+                        v.pause();
+                        const playBtn = v.parentElement.querySelector('.play-btn');
+                        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                        v.closest('.reel-card').classList.remove('playing');
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.section-title, .about-image, .about-text, .service-card, .gallery-item, .reel-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
   
