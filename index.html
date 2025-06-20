@@ -734,10 +734,451 @@
             font-size: 14px;
         }
         
-        /* Animations */
+    /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-text {
+                flex: none;
+                width: 100%;
+            }
+            
+            .hero-image {
+                width: 60%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.5s ease;
+                z-index: 1001;
+                padding: 80px 30px 30px;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .close-menu-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .btn {
+                padding: 10px 25px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Luxe<span>Nails</span></a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav">
+                <div class="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reels">Reels</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Elevate Your Style With <span>Luxe Nails</span></h1>
+                <p>Experience premium nail artistry that combines creativity with precision. Our gel extensions, polish, and custom designs will leave your hands looking flawless and fabulous.</p>
+                <a href="#contact" class="btn">Book Appointment</a>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Discover the artistry and passion behind Luxe Nails</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1596704017256-179b5d8938fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail artist at work">
+                </div>
+                <div class="about-text">
+                    <h3>Where Art Meets Nails</h3>
+                    <p>At Luxe Nails, we believe that your nails are a canvas for self-expression. Founded in 2018 by master nail artist Sophia Chen, our studio has become a sanctuary for those seeking exceptional nail care and breathtaking designs.</p>
+                    <p>Our team of certified nail technicians combines technical expertise with artistic vision to deliver services that go beyond expectations. We use only premium, cruelty-free products that are gentle on your nails while delivering long-lasting, vibrant results.</p>
+                    <p>Whether you're looking for a classic manicure, dramatic extensions, or intricate nail art, we approach each service with the same level of care, precision, and creativity.</p>
+                    <a href="#services" class="btn">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide gel extensions, gel polish and different types of nail art</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1596704017256-179b5d8938fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Gel Extensions">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gel Extensions</h3>
+                        <p>Get the length and strength you desire with our premium gel extensions. Custom shaped to perfection for a natural yet enhanced look.</p>
+                        <div class="service-price">From $65</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1604658243844-6edafa0d42b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Gel Polish">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gel Polish</h3>
+                        <p>Long-lasting, chip-resistant color that maintains its glossy finish for weeks. Hundreds of shades to choose from.</p>
+                        <div class="service-price">From $45</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nail Art">
+                    </div>
+                    <div class="service-content">
+                        <h3>Nail Art</h3>
+                        <p>From subtle accents to full-on masterpieces, our artists will bring your vision to life with precision and creativity.</p>
+                        <div class="service-price">From $15+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+                <p>Browse through our collection of stunning nail designs</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1604658243844-6edafa0d42b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail Design 1">
+                    <div class="gallery-overlay">
+                        <h4>French Ombré</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nail Design 2">
+                    <div class="gallery-overlay">
+                        <h4>Floral Art</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596704017256-179b5d8938fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail Design 3">
+                    <div class="gallery-overlay">
+                        <h4>Marble Effect</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1590544107980-6f916d2a9cfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail Design 4">
+                    <div class="gallery-overlay">
+                        <h4>Glitter Gradient</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596703264272-5fdf5c5aedc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail Design 5">
+                    <div class="gallery-overlay">
+                        <h4>Abstract Design</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596704017256-179b5d8938fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Nail Design 6">
+                    <div class="gallery-overlay">
+                        <h4>Geometric Patterns</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reels Section -->
+    <section class="reels" id="reels">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Reels</h2>
+                <p>Watch our nail transformation videos</p>
+            </div>
+            <div class="reels-grid">
+                <div class="reel-card">
+                    <div class="reel-video">
+                        <video poster="https://images.unsplash.com/photo-1596704017256-179b5d8938fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80">
+                            <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="reel-content">
+                        <h3>French Tip Transformation</h3>
+                        <p><i class="far fa-eye"></i> 12.5k views</p>
+                    </div>
+                </div>
+                <div class="reel-card">
+                    <div class="reel-video">
+                        <video poster="https://images.unsplash.com/photo-1604658243844-6edafa0d42b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80">
+                            <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="reel-content">
+                        <h3>3D Flower Nail Art</h3>
+                        <p><i class="far fa-eye"></i> 24.7k views</p>
+                    </div>
+                </div>
+                <div class="reel-card">
+                    <div class="reel-video">
+                        <video poster="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+                            <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="reel-content">
+                        <h3>Gel Extension Process</h3>
+                        <p><i class="far fa-eye"></i> 18.3k views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about us</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client 1">
+                    </div>
+                    <p class="testimonial-text">"I've been going to Luxe Nails for over a year now and I'm always amazed by their attention to detail. My gel extensions last perfectly for weeks and the designs are always stunning!"</p>
+                    <h4 class="client-name">Sarah Johnson</h4>
+                    <p class="client-role">Regular Client</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client 2">
+                    </div>
+                    <p class="testimonial-text">"The nail art Sophia created for my wedding was beyond anything I could have imagined. She captured my vision perfectly and all my guests were complimenting my nails!"</p>
+                    <h4 class="client-name">Emily Rodriguez</h4>
+                    <p class="client-role">Bride</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client 3">
+                    </div>
+                    <p class="testimonial-text">"As someone who's very particular about nail hygiene, I appreciate how clean and professional Luxe Nails is. Their tools are always sterilized and the space is immaculate."</p>
+                    <h4 class="client-name">Michelle Chen</h4>
+                    <p class="client-role">New Client</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready for Your Nail Transformation?</h2>
+            <p>Book your appointment today and experience the Luxe Nails difference. Our team is ready to create beautiful, long-lasting nails just for you.</p>
+            <a href="#contact" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Luxe Nails</h3>
+                    <p>Premium nail artistry studio specializing in gel extensions, gel polish, and custom nail designs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#reels"><i class="fas fa-chevron-right"></i> Reels</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gel Extensions</
   
